@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+
 dotenv.config();
 //
 const url = process.env.GITHUB_URL
@@ -19,7 +20,8 @@ export const getRepos = async () => {
         }
         const data = await response.json();
         console.log("✅ repos récupérer");
-        return data;
+
+        return data.filter(repo => repo.name === "api-site-perso" || repo.name === "spicyfire21.github.io");
     } catch (error) {
         console.error("❌ Erreur recupération répos :", error);
     }
