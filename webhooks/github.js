@@ -21,7 +21,7 @@ export const getRepos = async () => {
         const data = await response.json();
         console.log("✅ repos récupérer");
 
-        return data.filter(repo => repo.name === "api-site-perso" || repo.name === "spicyfire21.github.io");
+        return data.filter(repo => repo.name !== "api-site-perso" && repo.name !== "spicyfire21.github.io");
     } catch (error) {
         console.error("❌ Erreur recupération répos :", error);
     }
